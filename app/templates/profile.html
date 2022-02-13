@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block css %} <link rel="stylesheet" href="{{url_for('static', filename='css/app.css')}}"/> {% endblock%}
+
+
+{% block main %}
+
+<body>
+    <div class = "profile">
+        <div id = "photo_area">
+            <img src = "{{url_for('static', filename='pic.png')}}">
+            <h4>Jessica Whyte</h4>
+            <p>@jessicaw <br> Montego Bay, Jamaica<br>{{theDate}}</p>
+        </div>
+
+        <div class = "details">
+            <div id = "bio">
+                <p>I am a lover of science fiction and fantasy genres and a creative who dabbles in digital art. Feel free to take a look at my profile and leave a nice comment. </p>
+            </div>
+
+            <div class = "stats">
+                <div class = "info">
+                   <strong>2</strong> <br><p>Posts</p>
+                </div>
+                <div class = "info">
+                    <strong>213</strong> <br> <p>Following</p> 
+                </div>
+                <div class = "info">
+                    <strong>1700</strong> <br> <p>Followers</p>
+                </div>
+            </div>
+            </div>
+
+            <div>
+                <button class = "btn"><strong>Follow</strong></button>
+            </div>
+    </div>
+</body>
+
+{% endblock %}

@@ -4,10 +4,10 @@ Jinja2 Documentation:    https://jinja.palletsprojects.com/
 Werkzeug Documentation:  https://werkzeug.palletsprojects.com/
 This file creates your application.
 """
-
+import datetime
+from calendar import month
 from app import app
 from flask import render_template, request, redirect, url_for, flash
-
 
 ###
 # Routing for your application.
@@ -22,12 +22,24 @@ def home():
 @app.route('/about/')
 def about():
     """Render the website's about page."""
-    return render_template('about.html', name="Mary Jane")
+    return render_template('about.html', name="Jessica Whyte")
+
+
+def format_date_joined(date):
+    date_joined = "Joined " + date.strftime("%B , %Y")
+    return date_joined
+
+
+@app.route('/profile/')
+def profile():
+    """Render the user's profile page."""
+    return render_template('profile.html', theDate=format_date_joined(datetime.datetime.now()))
 
 
 ###
 # The functions below should be applicable to all Flask apps.
 ###
+
 
 @app.route('/<file_name>.txt')
 def send_text_file(file_name):
